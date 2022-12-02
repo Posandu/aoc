@@ -79,7 +79,7 @@ ${globCSS}
 
 </head><body>
 
-<h1>Advend of Code 2022</h1>
+<h1>Advent of Code 2022</h1>
 
 <p> A collection of my solutions to the Advent of Code 2022. </p>
 
