@@ -77,7 +77,30 @@ ${globCSS}
 <meta charset="utf-8">
 <meta name="G_at:" content="${new Date().toISOString()}">
 
-</head><body><h1>Index</h1><ul>`);
+</head><body>
+
+<h1>Advend of Code 2022</h1>
+
+<p> A collection of my solutions to the Advent of Code 2022. </p>
+
+<p> <a href="https://adventofcode.com/2022">Link</a>
+
+<a href="https://github.com/Posandu/aoc">Source</a> 
+
+<img src="https://img.shields.io/github/last-commit/Posandu/aoc?style=flat-square" alt="Last Commit">
+
+<a href="https://twitter.com/Posandu"><img src="https://img.shields.io/twitter/follow/Posandu?style=social" alt="Twitter Follow"></a>
+
+<a href="https://buymeacoffee.com/Posandu"><img src="https://img.shields.io/badge/Donate-Buy%20Me%20A%20Coffee-orange" alt="Buy Me A Coffee"></a>
+</p>
+
+<br>
+
+
+
+
+
+<ul>`);
 
 files.forEach(({ d }) => {
 	const n = d.match(/\d+/)[0];
