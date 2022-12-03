@@ -1,4 +1,4 @@
-const inp = require("./inp")
+const inp = require("./inp");
 
 const score = {
 	X: 1,
@@ -30,12 +30,12 @@ inp.split("\n").forEach((line) => {
 	} else if (loseOP.includes(a + b)) {
 		Totscore += score.Won;
 
-        log("Add 6 to score");
-    } else {
-        Totscore += score.Draw;
+		log("Add 6 to score");
+	} else {
+		Totscore += score.Draw;
 
-        log("Add 3 to score");
-    }
+		log("Add 3 to score");
+	}
 
 	Totscore += score[b];
 

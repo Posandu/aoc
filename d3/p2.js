@@ -20,13 +20,15 @@ const inSplit = chunk(inp.split`\n`, 3);
 let col = [];
 
 inSplit.map((line) => {
-    const common = [...line[0]].filter((l) => line[1].includes(l) && line[2].includes(l)); // Bad code, but it works
+	const common = [...line[0]].filter(
+		(l) => line[1].includes(l) && line[2].includes(l)
+	); // Bad code, but it works
 
-    col.push([...new Set(common)].flat());
-})
+	col.push([...new Set(common)].flat());
+});
 
 let tot = 0;
 
 col.map((l) => (tot += priorities[l]));
 
-log(tot)
+log(tot);
