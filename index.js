@@ -39,14 +39,16 @@ files.forEach(({ d, f }) => {
 	<a href="/index.html">Index</a>
 	`);
 
-	const inp = require(`./${d}/inp.js`);
-
 	out.write(`<h2>Input</h2>
 
-    <details><summary>Click to expand</summary>
+    <details id=loadInp><summary>Click to expand</summary>
 
-    <pre>${inp}</pre>
+    <pre id=inp>
+		Loading...
+	</pre>
     </details>`);
+
+	fs.writeFileSync(`${outPath}/${d}_T.txt`, `${fs.readFileSync(`./${d}/inp.js`)}`);
 
 	f.forEach((file) => {
 		if (file === "inp.js") return;
@@ -62,7 +64,26 @@ files.forEach(({ d, f }) => {
 		class="hljs javascript">${code_html}</code></pre>`);
 	});
 
-	out.write(`</body></html>`);
+	out.write(`
+	
+	<script>
+	const loadInp = document.getElementById("loadInp");
+	const inp = document.getElementById("inp");
+
+	let l = 0;
+	loadInp.addEventListener("click", () => {
+		if (l) return;
+		l = 1;
+		fetch("${d}_T.txt")
+			.then((r) => r.text())
+			.then((t) => {
+				inp.innerText = \`\${
+					t
+				};\`;
+			});
+	});
+	</script>
+	</body></html>`);
 
 	out.end();
 });
@@ -84,11 +105,11 @@ ${globCSS}
 
 <p> A collection of my solutions to the Advent of Code 2022. </p>
 
-<p> <a href="https://adventofcode.com/2022">Link</a>
+<a href="https://github.com/Posandu/aoc">	
+	<img src="https://img.shields.io/badge/GitHub-Posandu%2Faoc-blue?style=social&logo=github" alt="GitHub">
+</a> 
 
-<a href="https://github.com/Posandu/aoc">Source</a> 
-
-<img src="https://img.shields.io/github/last-commit/Posandu/aoc?style=flat-square" alt="Last Commit">
+<img src="https://img.shields.io/github/last-commit/Posandu/aoc?style=social" alt="Last Commit">
 
 <a href="https://twitter.com/Posandu"><img src="https://img.shields.io/twitter/follow/Posandu?style=social" alt="Twitter Follow"></a>
 
